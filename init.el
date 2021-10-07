@@ -37,8 +37,9 @@
 (load-theme 'solarized-gruvbox-light)
 
 
-(setq package-load-list '((htmlize t)))
-(package-initialize)
+;; (setq package-load-list '((htmlize t)))
+;; (package-initialize)
+(use-package htmlize)
 
 ;; (load-theme 'adwaita)
 
