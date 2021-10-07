@@ -43,6 +43,6 @@
 ;; (load-theme 'adwaita)
 
 
+(find-file "index.org")
 (org-html-export-to-html)
-
-(kill-emacs))
+(kill-emacs)
