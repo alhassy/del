@@ -26,20 +26,20 @@
 (setf custom-safe-themes t)
 
 ;; Nice looking themes ^_^
-(use-package solarized-theme)
-(use-package doom-themes)
-(use-package spacemacs-common
-  :ensure spacemacs-theme)
+;; (use-package solarized-theme)
+;; (use-package doom-themes)
+;; (use-package spacemacs-common
+;;   :ensure spacemacs-theme)
+;;
 
-(message-box "HOLA - MID")
 ;; (setq my/themes '(doom-solarized-light doom-vibrant spacemacs-light solarized-gruvbox-dark solarized-gruvbox-light))
 (use-package solarized-theme)
 (load-theme 'solarized-gruvbox-light)
 
 
-;; (setq package-load-list '((htmlize t)))
+(setq package-load-list '((htmlize t)))
+(package-initialize)
 
-;; (package-initialize)
 ;; (load-theme 'adwaita)
 
 
