@@ -44,7 +44,8 @@ jobs:
 
       - name: Make the goods ---for now, syntax colouring does not come through; TODO
         shell: 'script --return --quiet --command "bash {0}"'
-        run: emacs -Q -nw index.org --load init.el -eval "(progn (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (org-html-export-to-html))" -f kill-emacs
+        # run: emacs -Q -nw index.org --load init.el -eval "(progn (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (org-html-export-to-html))" -f kill-emacs
+        run: emacs -Q -nw index.org -eval "(progn (load-file \"init.el\") (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (org-html-export-to-html)(kill-emacs))"
         env:
           TERM: "xterm"
         # “emacs --batch” inhibits the colorization of the code snippets.
