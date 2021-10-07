@@ -33,17 +33,15 @@
 ;;
 
 ;; (setq my/themes '(doom-solarized-light doom-vibrant spacemacs-light solarized-gruvbox-dark solarized-gruvbox-light))
-(use-package solarized-theme)
-(load-theme 'solarized-gruvbox-light)
 
 
 ;; (setq package-load-list '((htmlize t)))
 ;; (package-initialize)
 (use-package htmlize)
 
-;; (load-theme 'adwaita)
-
-
 (find-file "index.org")
+;; (use-package solarized-theme)
+;; (load-theme 'solarized-gruvbox-light)
+(load-theme 'adwaita)
 (org-html-export-to-html)
 (kill-emacs)
