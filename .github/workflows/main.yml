@@ -43,7 +43,12 @@ jobs:
       #    echo test, and deploy your project.
 
       - name: Make the goods ---for now, syntax colouring does not come through; TODO
-        run: emacs --batch index.org -eval "(progn (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (outline-show-all) (org-html-export-to-html))"
+        run: emacs -Q -nw index.org -eval "(progn (require 'package)
+        (add-to-list 'package-archives '(\"melpa\"
+        . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize
+        t))) (package-initialize) (load-theme 'adwaita)
+        (org-html-export-to-html))" -f kill-emacs
+        # “emacs --batch” inhibits the colorization of the code snippets.
 
 
       - name: where am I and what's here
