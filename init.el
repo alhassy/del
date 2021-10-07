@@ -6,6 +6,16 @@
 
 (package-refresh-contents)
 
+
+
+;;
+;; (package-install 'exec-path-from-shell)
+;; (require 'exec-path-from-shell)
+;; (exec-path-from-shell-initialize)
+
+
+;; message-box "neato")
+
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (require 'use-package)
@@ -16,37 +26,23 @@
 (setf custom-safe-themes t)
 
 ;; Nice looking themes ^_^
-(use-package solarized-theme :defer t)
-(use-package doom-themes :defer t)
+(use-package solarized-theme)
+(use-package doom-themes)
 (use-package spacemacs-common
-  :defer t
   :ensure spacemacs-theme)
 
-
 (message-box "HOLA - MID")
-
-
-;; Infinite list of my commonly used themes.
-(setq my/themes '(doom-solarized-light doom-vibrant spacemacs-light solarized-gruvbox-dark solarized-gruvbox-light))
-(setcdr (last my/themes) my/themes)
-
-(cl-defun my/disable-all-themes (&optional (new-theme (pop my/themes)))
-  "Disable all themes and load NEW-THEME, which defaults from ‘my/themes’.
-
-When a universal prefix is given, “C-u C-c t”, we load a random
-theme from all possible themes.  Nice way to learn about more
-themes (•̀ᴗ•́)و"
-  (interactive)
-  (mapc #'disable-theme custom-enabled-themes)
-  (-let [theme (if current-prefix-arg
-                   (nth (random (length (custom-available-themes)))
-                        (custom-available-themes))
-                 new-theme)]
-    (when theme
-      (load-theme theme)
-      (message "Theme %s" theme))))
-
-(defalias 'my/toggle-theme #' my/disable-all-themes)
-
+;; (setq my/themes '(doom-solarized-light doom-vibrant spacemacs-light solarized-gruvbox-dark solarized-gruvbox-light))
 (use-package solarized-theme)
-(my/toggle-theme 'solarized-gruvbox-light)
+(load-theme 'solarized-gruvbox-light)
+
+
+;; (setq package-load-list '((htmlize t)))
+
+;; (package-initialize)
+;; (load-theme 'adwaita)
+
+
+(org-html-export-to-html)
+
+(kill-emacs))
