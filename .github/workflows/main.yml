@@ -42,5 +42,18 @@ jobs:
       #    echo Add other actions to build,
       #    echo test, and deploy your project.
 
-      - name: Run tests
+      - name: Make the goods
         run: emacs --batch index.org -eval "(progn (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (outline-show-all) (org-html-export-to-html))"
+
+
+      - name: where am I
+        run: |
+          pwd
+          ls
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: /home/runner/
+          force_orphan: true
