@@ -46,7 +46,7 @@ jobs:
         shell: 'script --return --quiet --command "bash {0}"'
         run: emacs -Q -nw index.org -eval "(progn (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (org-html-export-to-html))" -f kill-emacs
         env:
-          TERM: "dumb"
+          TERM: "xterm"
         # “emacs --batch” inhibits the colorization of the code snippets.
         # Using “emacs -Q -nw” instead does not work with Github Actions :/
 
