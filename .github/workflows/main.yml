@@ -43,7 +43,7 @@ jobs:
       #    echo test, and deploy your project.
 
       - name: Make the goods ---for now, syntax colouring does not come through; TODO
-        shell: 'script --return --quiet --command "bash {0}"'
+        # shell: 'script --return --quiet --command "bash {0}"'
         run: emacs -Q -nw index.org -eval "(progn (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (org-html-export-to-html))" -f kill-emacs
         env:
           TERM: "xterm"
