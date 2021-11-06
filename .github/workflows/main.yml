@@ -33,6 +33,12 @@ jobs:
       #     version: 27.1 # optional
 
 
+      - name: where am I and what's here BEFORE KNIT
+        run: |
+          pwd
+          ls
+
+
       - name: Export Org files to GitHub Pages
         uses: tecosaur/org-knit-action@v0.3
         with:
@@ -64,20 +70,20 @@ jobs:
         # Using “emacs -Q -nw” instead does not work with Github Actions :/
 
 
-      # - name: where am I and what's here
-      #   run: |
-      #     pwd
-      #     ls
+      - name: where am I and what's here AFTER KNIT
+        run: |
+          pwd
+          ls
 
-      # # The next step will deploy the “/home/runner/work/del/del” directory to
-      # # the remote “gh-pages” branch of this repo.
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: /home/runner/work/del/del
-      #     force_orphan: true
-      #   # For newbies of GitHub Actions: Note that the GITHUB_TOKEN is NOT a
-      #   # personal access token. A GitHub Actions runner automatically creates a
-      #   # GITHUB_TOKEN secret to authenticate in your workflow. So, you can
-      #   # start to deploy immediately without any configuration.
+      # The next step will deploy the “/home/runner/work/del/del” directory to
+      # the remote “gh-pages” branch of this repo.
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /home/runner/work/del/del
+          force_orphan: true
+        # For newbies of GitHub Actions: Note that the GITHUB_TOKEN is NOT a
+        # personal access token. A GitHub Actions runner automatically creates a
+        # GITHUB_TOKEN secret to authenticate in your workflow. So, you can
+        # start to deploy immediately without any configuration.
