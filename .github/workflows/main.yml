@@ -26,11 +26,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Set up Emacs
-        uses: purcell/setup-emacs@v3.0
-        with:
-          # The version of Emacs to install, e.g. "24.3", or "snapshot" for a recent development version.
-          version: 27.1 # optional
+      # - name: Set up Emacs
+      #   uses: purcell/setup-emacs@v3.0
+      #   with:
+      #     # The version of Emacs to install, e.g. "24.3", or "snapshot" for a recent development version.
+      #     version: 27.1 # optional
 
 
       - name: Export Org files to GitHub Pages
@@ -39,6 +39,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           # add PDFs
+          tangle: yes
           export: html, pdf
 
 
