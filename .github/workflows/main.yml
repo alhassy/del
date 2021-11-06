@@ -39,7 +39,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           # add PDFs
-          # export: html, pdf
+          export: html, pdf
 
 
       # Runs a single command using the runners shell
