@@ -13,11 +13,11 @@ Yes, indeed
 
 But, of course
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle woah.el
 (defun jump () (message "noice"))
 #+end_src
 
 
-#+begin_src javascript
+#+begin_src javascript :tangle no
 const x = me => this.food;
 #+end_src

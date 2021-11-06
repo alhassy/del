@@ -32,6 +32,16 @@ jobs:
           # The version of Emacs to install, e.g. "24.3", or "snapshot" for a recent development version.
           version: 27.1 # optional
 
+
+      - name: Export Org files to GitHub Pages
+        uses: tecosaur/org-knit-action@v0.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          # add PDFs
+          # export: html, pdf
+
+
       # Runs a single command using the runners shell
       # - name: Run a one-line script
       #  run: echo Hello, world!
@@ -42,12 +52,13 @@ jobs:
       #    echo Add other actions to build,
       #    echo test, and deploy your project.
 
-      - name: Make the goods ---for now, syntax colouring does not come through; TODO
-        shell: 'script --return --quiet --command "bash {0}"'
-        # run: emacs -Q -nw index.org --load init.el -eval "(progn (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (org-html-export-to-html))" -f kill-emacs
-        run: emacs --script init.el
-        env:
-          TERM: "xterm"
+      # TODO ignoring for now.
+      # - name: Make the goods ---for now, syntax colouring does not come through; TODO
+      #   shell: 'script --return --quiet --command "bash {0}"'
+      #   # run: emacs -Q -nw index.org --load init.el -eval "(progn (require 'package) (add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\")) (setq package-load-list '((htmlize t))) (package-initialize) (load-theme 'adwaita) (org-html-export-to-html))" -f kill-emacs
+      #   run: emacs --script init.el
+      #   env:
+      #     TERM: "xterm"
         # “emacs --batch” inhibits the colorization of the code snippets.
         # Using “emacs -Q -nw” instead does not work with Github Actions :/
 
